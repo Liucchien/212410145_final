@@ -37,7 +37,7 @@ const AdminCabinPage = async (props: {
     <div className='space-y-2'>
       <div className='flex-between'>
         <div className='flex items-center gap-3'>
-          <h1 className='h2-bold'>Cabins</h1>
+          <h1 className='h2-bold'>Cabins_xx</h1>
           {searchText && (
             <div>
               Filtered by <i>&quot;{searchText}&quot;</i>{' '}
@@ -53,41 +53,7 @@ const AdminCabinPage = async (props: {
           <Link href='/admin/cabins/create'>Create Cabin</Link>
         </Button>
       </div>
-      <div className='overflow-x-auto'>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>ID</TableHead>
-              <TableHead>NAME</TableHead>
-              <TableHead>Capacity</TableHead>
-              <TableHead>Price</TableHead>
-              <TableHead>Discount</TableHead>
-              <TableHead>Local Image</TableHead>
-              {/* <TableHead>Description</TableHead> */}
-              <TableHead>ACTIONS</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {cabins.map((cabin) => (
-              <TableRow key={cabin.id}>
-                <TableCell>{formatId(cabin.id)}</TableCell>
-                <TableCell>{cabin.name}</TableCell>
-                <TableCell>{cabin.capacity}</TableCell>
-                <TableCell>{cabin.price}</TableCell>
-                <TableCell>{cabin.discount}</TableCell>
-                <TableCell>{cabin.local_img}</TableCell>
-                {/* <TableCell>{cabin.description}</TableCell> */}
-                <TableCell>
-                  <Button asChild variant='outline' size='sm'>
-                    <Link href={`/admin/cabins/${cabin.id}`}>Edit</Link>
-                  </Button>
-                  <DeleteDialog id={cabin.id} action={deleteCabin} />
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
+      <div className='overflow-x-auto'></div>
     </div>
   );
 };

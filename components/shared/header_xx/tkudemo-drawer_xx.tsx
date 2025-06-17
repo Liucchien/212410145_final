@@ -7,7 +7,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer';
-import { getAllCategories } from '@/lib/actions/product.actions_xx';
 import { MenuIcon } from 'lucide-react';
 import Link from 'next/link';
 
@@ -22,39 +21,33 @@ const tkudemos = [
   },
 ];
 
-const TKUDemoDrawer_xx = async () => {
-  // const categories = await getAllCategories();
-
-  return (
-    <Drawer direction='left'>
-      <DrawerTrigger asChild>
-        <Button variant='outline'>
-          <MenuIcon />
-        </Button>
-      </DrawerTrigger>
-      <DrawerContent className='h-full max-w-sm'>
-        <DrawerHeader>
-          <DrawerTitle>Select a tku demo</DrawerTitle>
-          <div className='space-y-1 mt-4'>
-            {tkudemos.map((demo) => (
-              <Button
-                variant='ghost'
-                className='w-full justify-start'
-                key={demo.href}
-                asChild
-              >
-                <DrawerClose asChild>
-                  <Link href={`${demo.href}`} className='w-full'>
-                    {demo.title}
-                  </Link>
-                </DrawerClose>
-              </Button>
-            ))}
-          </div>
-        </DrawerHeader>
-      </DrawerContent>
-    </Drawer>
-  );
-};
+const TKUDemoDrawer_xx = () => (
+  <Drawer direction='left'>
+    <DrawerTrigger asChild>
+      <Button variant='outline'>
+        <MenuIcon />
+      </Button>
+    </DrawerTrigger>
+    <DrawerContent className='h-full max-w-sm'>
+      <DrawerHeader>
+        <DrawerTitle>Select a tku demo</DrawerTitle>
+        <div className='space-y-1 mt-4'>
+          {tkudemos.map((demo) => (
+            <Button
+              variant='ghost'
+              className='w-full justify-start'
+              key={demo.title}
+              asChild
+            >
+              <DrawerClose asChild>
+                <Link href={demo.href}>{demo.title}</Link>
+              </DrawerClose>
+            </Button>
+          ))}
+        </div>
+      </DrawerHeader>
+    </DrawerContent>
+  </Drawer>
+);
 
 export default TKUDemoDrawer_xx;
